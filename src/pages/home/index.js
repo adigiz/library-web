@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { Layout, Row, Col } from "antd";
+import { Layout, Row, Col, Skeleton } from "antd";
 import BookItem from "components/book-item";
 import Navbar from "components/navbar";
 import Sidebar from "components/sidebar";
-import { getBooks } from "services/books";
+import { useFetch } from "hooks/useFetch";
 
 const Home = () => {
-  const [books, setBooks] = useState([]);
-  useEffect(() => {
-    getBooks().then((res) => setBooks(res.data.data));
-  }, []);
+  const { data, loading, error } = useFetch(
+    `${process.env.REACT_APP_SITE}/books`
+  );
   return (
     <Layout
       style={{
@@ -21,10 +20,11 @@ const Home = () => {
       <Layout>
         <Navbar />
         <div style={{ padding: "20px" }}>
-          <p style={{ fontWeight: 800, fontSize: "32px"}}>Most Favorite</p>
+          <p style={{ fontWeight: 800, fontSize: "32px" }}>Most Favorite</p>
           <Row>
-            {books.length &&
-              books.map((book) => {
+            {loading && <Skeleton/>}
+            {data &&
+              data.results.map((book) => {
                 return (
                   <Col xs={24} xl={8}>
                     <BookItem
