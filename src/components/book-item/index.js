@@ -10,7 +10,7 @@ const BookItem = ({ title, author, genre, imageUrl }) => {
       <div
         style={{ paddingLeft: "20px", paddingRight: "20px", width: "300px" }}
       >
-        <p style={{ fontSize: "28px", fontWeight: 800, lineHeight: "auto" }}>
+        <p style={{ fontSize: "20px", fontWeight: 800, lineHeight: "auto" }}>
           {title}
         </p>
         <p style={{ color: "grey" }}>{author}</p>

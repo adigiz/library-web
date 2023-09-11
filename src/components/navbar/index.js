@@ -30,7 +30,7 @@ const Navbar = () => {
             paddingLeft: "20px",
           }}
         >
-          <Input placeholder="Search Books" bordered={false} sty />
+          <Input placeholder="Search Books" bordered={false} />
         </Col>
         <Col flex="none">
           <Dropdown menu={{ items: userOptions }} trigger={["click"]}>
