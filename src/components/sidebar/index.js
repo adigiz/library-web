@@ -6,6 +6,8 @@ import {
   UserOutlined,
   SkinOutlined,
 } from "@ant-design/icons";
+import logo from "assets/library-logo.png";
+import icon from "assets/library-icon.png";
 
 const { Sider } = Layout;
 
@@ -44,6 +46,9 @@ const items = [
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const logoSrc = collapsed ? icon : logo;
+  const logoWidth = collapsed ? "40px" : "150px";
+  const logoStyle = collapsed ? null : { marginLeft: "20px" };
   return (
     <Sider
       width={250}
@@ -53,16 +58,16 @@ const Sidebar = () => {
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
     >
-      <p
+      <div
         style={{
-          marginBottom: "50px",
-          textAlign: "center",
-          fontSize: "20px",
-          fontWeight: 800,
+          display: "flex",
+          justifyContent: collapsed ? "center" : "left",
+          alignItems: "center",
+          padding: "10px",
         }}
       >
-        Libraryz
-      </p>
+        <img src={logoSrc} width={logoWidth} style={logoStyle} />
+      </div>
       <Menu
         theme="light"
         defaultSelectedKeys={["1"]}
