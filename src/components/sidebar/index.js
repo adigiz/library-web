@@ -8,6 +8,7 @@ import {
 } from "@ant-design/icons";
 import logo from "assets/library-logo.png";
 import icon from "assets/library-icon.png";
+import { Link } from "react-router-dom";
 
 const { Sider } = Layout;
 
@@ -66,7 +67,9 @@ const Sidebar = () => {
           padding: "10px",
         }}
       >
-        <img src={logoSrc} width={logoWidth} style={logoStyle} />
+        <Link to="/">
+          <img src={logoSrc} width={logoWidth} style={logoStyle} />
+        </Link>
       </div>
       <Menu
         theme="light"

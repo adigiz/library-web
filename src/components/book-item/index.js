@@ -1,5 +1,9 @@
 import { Image } from "antd";
-const BookItem = ({ title, author, genre, imageUrl }) => {
+import { Link } from "react-router-dom";
+import "./index.css";
+import toDateString from "utils/toDateString";
+const BookItem = (props) => {
+  const { title, author, genre, imageUrl, slug, publishedDate } = props;
   return (
     <div style={{ display: "flex", padding: "20px" }}>
       <Image
@@ -10,10 +14,13 @@ const BookItem = ({ title, author, genre, imageUrl }) => {
       <div
         style={{ paddingLeft: "20px", paddingRight: "20px", width: "300px" }}
       >
-        <p style={{ fontSize: "20px", fontWeight: 600, lineHeight: "auto" }}>
-          {title}
-        </p>
-        <p style={{ color: "grey" }}>{author}</p>
+        <Link to={`/books/${slug}`} style={{ color: "black" }}>
+          <p style={{ fontSize: "20px", fontWeight: 600, lineHeight: "auto" }}>
+            {title}
+          </p>
+        </Link>
+        <p style={{ color: "black", fontSize:"16px" }}>{author}</p>
+        <p style={{color: "grey"}}>{toDateString(publishedDate)}</p>
         <p
           style={{
             paddingRight: "1rem",
