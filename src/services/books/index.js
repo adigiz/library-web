@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const getBooks = () => {
-    return axios.get(`http://localhost:8080/books`);
+    return axios.get(`${process.env.REACT_APP_SITE}/books`);
 }

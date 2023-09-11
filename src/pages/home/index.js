@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Layout } from "antd";
+import { Layout, Row, Col } from "antd";
 import BookItem from "components/book-item";
 import Navbar from "components/navbar";
 import Sidebar from "components/sidebar";
@@ -20,18 +20,24 @@ const Home = () => {
       <Sidebar />
       <Layout>
         <Navbar />
-        <div style={{ display: "flex" }}>
-          {books.length &&
-            books.map((book) => {
-              return (
-                <BookItem
-                  title={book.title}
-                  imageUrl={book.imageurl}
-                  genre="Adventure"
-                  author={book.author}
-                />
-              );
-            })}
+        <div style={{ padding: "20px" }}>
+          <p style={{ fontWeight: 800, fontSize: "32px"}}>Most Favorite</p>
+          <Row>
+            {books.length &&
+              books.map((book) => {
+                return (
+                  <Col xs={24} xl={8}>
+                    <BookItem
+                      title={book.title}
+                      imageUrl={book.imageurl}
+                      genre="Adventure"
+                      author={book.author}
+                      key={book.id}
+                    />
+                  </Col>
+                );
+              })}
+          </Row>
         </div>
       </Layout>
     </Layout>

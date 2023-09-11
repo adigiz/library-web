@@ -1,7 +1,7 @@
 import { Image } from "antd";
 const BookItem = ({ title, author, genre, imageUrl }) => {
   return (
-    <div style={{ display: "flex", marginLeft: "20px", marginTop: "20px" }}>
+    <div style={{ display: "flex", padding: "20px" }}>
       <Image
         style={{ borderRadius: "20px", paddingLeft: "0px" }}
         width={200}
@@ -10,7 +10,7 @@ const BookItem = ({ title, author, genre, imageUrl }) => {
       <div
         style={{ paddingLeft: "20px", paddingRight: "20px", width: "300px" }}
       >
-        <p style={{ fontSize: "20px", fontWeight: 800, lineHeight: "auto" }}>
+        <p style={{ fontSize: "20px", fontWeight: 600, lineHeight: "auto" }}>
           {title}
         </p>
         <p style={{ color: "grey" }}>{author}</p>
@@ -21,7 +21,7 @@ const BookItem = ({ title, author, genre, imageUrl }) => {
             paddingTop: "5px",
             paddingBottom: "5px",
             width: "fit-content",
-            backgroundColor: "blue",
+            backgroundColor: "#74b9ff",
             borderRadius: "20px",
             color: "white",
             textAlign: "center",
