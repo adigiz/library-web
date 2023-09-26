@@ -16,7 +16,6 @@ const Login = () => {
     axios
       .post(`${process.env.REACT_APP_SITE}/auth/login`, data)
       .then((res) => {
-        console.log(res.data.accessToken)
         setToken(res.data.accessToken);
         navigate("/", { replace: true });
       })

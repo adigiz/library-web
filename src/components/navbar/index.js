@@ -17,7 +17,6 @@ const Navbar = () => {
   const {setToken} = useAuth();
   const navigate = useNavigate();
   const onClick = () => {
-    console.log('logout nih')
     setToken();
     navigate("/", { replace: true });
   };

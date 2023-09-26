@@ -1,19 +1,19 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import useAuth from "hooks/useAuth";
 import ProtectedRoute from "./ProtectedRoute";
+import UnProtectedRoute from "./UnProtectedRoute";
 
 import Login from "pages/login";
 import Home from "pages/home";
 import BookDetail from "pages/book-detail";
 import Register from "pages/register";
-import UnProtectedRoute from "./UnProtectedRoute";
+
 
 const Routes = () => {
   // Define routes accessible only to authenticated users
   const routes = [
     {
       path: "/",
-      element: <ProtectedRoute />, // Wrap the component in ProtectedRoute
+      element: <ProtectedRoute />, //RouteGuard
       children: [
         {
           path: "/",

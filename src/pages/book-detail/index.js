@@ -8,7 +8,6 @@ const BookDetail = () => {
     `${process.env.REACT_APP_SITE}/books/${slug}`
   );
 
-  console.log(data)
   return (
     <div style={{ display: "flex", padding: "20px" }}>
       {loading && <Skeleton />}
@@ -28,7 +27,7 @@ const BookDetail = () => {
             {data.title}
           </p>
           <p style={{ color: "grey" }}>by {data.author}</p>
-          <p style={{fontSize: "18px", fontWeight: 600}}>Synopsis</p>
+          <p style={{ fontSize: "18px", fontWeight: 600 }}>Synopsis</p>
           {data.synopsis.split("\\n").map((text) => (
             <>
               {text}
