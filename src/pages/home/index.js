@@ -14,17 +14,16 @@ const Home = () => {
       <Row>
         {loading && <Skeleton />}
         {data &&
-          data.results.map((book) => {
+          data.results.map((book, index) => {
             return (
-              <Col xs={24} xl={8}>
+              <Col key={index} xs={24} xl={8}>
                 <BookItem
                   title={book.title}
-                  imageUrl={book.imageurl}
+                  imageUrl={book.cover}
                   genre="Adventure"
                   author={book.author}
                   slug={book.slug}
                   publishedDate={book.published_date}
-                  key={book.id}
                 />
               </Col>
             );

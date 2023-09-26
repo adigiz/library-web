@@ -6,7 +6,7 @@ export const useFetch = (url) => {
   const [error, setError] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
-        setLoading(true);
+      setLoading(true);
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error(response.statusText);

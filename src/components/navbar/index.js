@@ -1,17 +1,26 @@
 import { Input, Avatar, Col, Row, Dropdown, Space, theme, Layout } from "antd";
+import useAuth from "hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 const { Header } = Layout;
 const userOptions = [
   {
-    label: <a href="https://www.antgroup.com">Profile</a>,
+    label: "Profile",
     key: "0",
   },
   {
-    label: <a href="https://www.aliyun.com">Logout</a>,
+    label: "Logout",
     key: "1",
   },
 ];
 
 const Navbar = () => {
+  const {setToken} = useAuth();
+  const navigate = useNavigate();
+  const onClick = () => {
+    console.log('logout nih')
+    setToken();
+    navigate("/", { replace: true });
+  };
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -33,7 +42,7 @@ const Navbar = () => {
           <Input placeholder="Search Books" bordered={false} />
         </Col>
         <Col flex="none">
-          <Dropdown menu={{ items: userOptions }} trigger={["click"]}>
+          <Dropdown menu={{ items: userOptions, onClick }} trigger={["click"]}>
             <Space
               size="middle"
               style={{
