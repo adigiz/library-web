@@ -4,21 +4,17 @@ import { Layout, Image, Button, Form, Input } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import useAuth from "hooks/useAuth";
 import Snackbar from "components/snackbar";
 
-const Login = () => {
-  const { setToken } = useAuth();
+const Register = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [snackType, setSnackType] = useState("");
   const handleSubmit = (data) => {
     axios
-      .post(`${process.env.REACT_APP_SITE}/auth/login`, data)
-      .then((res) => {
-        console.log(res.data.accessToken)
-        setToken(res.data.accessToken);
-        navigate("/", { replace: true });
+      .post(`${process.env.REACT_APP_SITE}/auth/register`, data)
+      .then(() => {
+        navigate("/login", { replace: true });
       })
       .catch((err) => {
         setError(err.response.data.error);
@@ -60,7 +56,6 @@ const Login = () => {
               remember: true,
             }}
             onFinish={handleSubmit}
-            style={{ textAlign: "left" }}
           >
             <Form.Item
               name="username"
@@ -78,11 +73,13 @@ const Login = () => {
             </Form.Item>
             <Form.Item
               name="password"
+              hasFeedback
               rules={[
                 {
                   required: true,
                   message: "Please input your Password!",
                 },
+                { min: 8, message: "Minimum 8 character" },
               ]}
             >
               <Input.Password
@@ -91,7 +88,37 @@ const Login = () => {
                 placeholder="Password"
               />
             </Form.Item>
-            <Form.Item style={{ marginTop: "5rem" }}>
+            <Form.Item
+              name="confirm"
+              dependencies={["password"]}
+              hasFeedback
+              rules={[
+                {
+                  required: true,
+                  message: "Please confirm your password!",
+                },
+                { min: 8, message: "Minimum 8 character" },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue("password") === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error(
+                        "The new password that you entered do not match!"
+                      )
+                    );
+                  },
+                }),
+              ]}
+            >
+              <Input.Password
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                type="password"
+                placeholder="Confirm Password"
+              />
+            </Form.Item>
+            <Form.Item style={{marginTop: '5rem'}}>
               <Button
                 block
                 type="primary"
@@ -103,11 +130,11 @@ const Login = () => {
             </Form.Item>
           </Form>
           <div>
-            Don't have an account? <a href="/register">Register Here</a>
+            Already have an account? <a href="/login">Login Here</a>
           </div>
         </div>
       </Layout>
     </div>
   );
 };
-export default Login;
+export default Register;

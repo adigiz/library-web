@@ -8,6 +8,7 @@ const BookDetail = () => {
     `${process.env.REACT_APP_SITE}/books/${slug}`
   );
 
+  console.log(data)
   return (
     <div style={{ display: "flex", padding: "20px" }}>
       {loading && <Skeleton />}
@@ -16,7 +17,7 @@ const BookDetail = () => {
           preview={false}
           style={{ borderRadius: "20px", paddingLeft: "0px" }}
           width={300}
-          src={data.imageurl}
+          src={data.cover}
         />
       )}
       {data && (

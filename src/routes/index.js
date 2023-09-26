@@ -5,20 +5,12 @@ import ProtectedRoute from "./ProtectedRoute";
 import Login from "pages/login";
 import Home from "pages/home";
 import BookDetail from "pages/book-detail";
+import Register from "pages/register";
+import UnProtectedRoute from "./UnProtectedRoute";
 
 const Routes = () => {
-  const { token } = useAuth();
-
-  // Define public routes accessible to all users
-  const routesForPublic = [
-    {
-      path: "/login",
-      element: <Login />,
-    },
-  ];
-
   // Define routes accessible only to authenticated users
-  const routesForAuthenticatedOnly = [
+  const routes = [
     {
       path: "/",
       element: <ProtectedRoute />, // Wrap the component in ProtectedRoute
@@ -33,22 +25,25 @@ const Routes = () => {
         },
       ],
     },
-  ];
-
-  // Define routes accessible only to non-authenticated users
-  const routesForNotAuthenticatedOnly = [
     {
-      path: "/login",
-      element: <Login />,
+      path: "/",
+      element: <UnProtectedRoute />, // Wrap the component in ProtectedRoute
+      children: [
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/register",
+          element: <Register />,
+        },
+      ],
     },
   ];
 
+
   // Combine and conditionally include routes based on authentication status
-  const router = createBrowserRouter([
-    ...routesForPublic,
-    ...(!token ? routesForNotAuthenticatedOnly : []),
-    ...routesForAuthenticatedOnly,
-  ]);
+  const router = createBrowserRouter([...routes]);
 
   // Provide the router configuration using RouterProvider
   return <RouterProvider router={router} />;
