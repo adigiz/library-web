@@ -2,8 +2,10 @@ import { Image } from "antd";
 import { Link } from "react-router-dom";
 import "./index.css";
 import toDateString from "utils/toDateString";
+import Genre from "components/genre";
 const BookItem = (props) => {
   const { title, author, genre, imageUrl, slug, publishedDate } = props;
+  
   return (
     <div style={{ display: "flex", padding: "20px" }}>
       <Image
@@ -21,21 +23,7 @@ const BookItem = (props) => {
         </Link>
         <p style={{ color: "black", fontSize:"16px" }}>{author}</p>
         <p style={{color: "grey"}}>{toDateString(publishedDate)}</p>
-        <p
-          style={{
-            paddingRight: "1rem",
-            paddingLeft: "1rem",
-            paddingTop: "5px",
-            paddingBottom: "5px",
-            width: "fit-content",
-            backgroundColor: "#74b9ff",
-            borderRadius: "20px",
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          {genre}
-        </p>
+        <Genre genre={genre}/>
       </div>
     </div>
   );

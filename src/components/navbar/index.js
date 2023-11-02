@@ -50,8 +50,8 @@ const Navbar = () => {
                 cursor: "pointer",
               }}
             >
+              Gizwanda
               <Avatar size="large">Giz</Avatar>
-              Gizwanda Bill is a cat.
             </Space>
           </Dropdown>
         </Col>

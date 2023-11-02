@@ -5,6 +5,7 @@ import UnProtectedRoute from "./UnProtectedRoute";
 import Login from "pages/login";
 import Home from "pages/home";
 import BookDetail from "pages/book-detail";
+import BookReader from "pages/reader";
 import Register from "pages/register";
 
 
@@ -22,6 +23,10 @@ const Routes = () => {
         {
           path: "/books/:slug",
           element: <BookDetail />,
+        },
+        {
+          path: "/books/:slug/read",
+          element: <BookReader />,
         },
       ],
     },

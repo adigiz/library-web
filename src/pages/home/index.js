@@ -15,12 +15,14 @@ const Home = () => {
         {loading && <Skeleton />}
         {data &&
           data.results.map((book, index) => {
+            const genres = book.genre.split(",")
+            const genre = genres[0]
             return (
               <Col key={index} xs={24} xl={8}>
                 <BookItem
                   title={book.title}
-                  imageUrl={book.cover}
-                  genre="Adventure"
+                  imageUrl={book.imageurl}
+                  genre={genre}
                   author={book.author}
                   slug={book.slug}
                   publishedDate={book.published_date}
