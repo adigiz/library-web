@@ -4,7 +4,7 @@
     cursor: "pointer";
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 990px) {
     .avatar-container {
         display: none;
     }

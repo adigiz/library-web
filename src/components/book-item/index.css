@@ -19,12 +19,24 @@ a:hover {
 .book-item-title {
     font-size: 1.2rem; 
     font-weight: 600; 
-    line-height: auto;
+    margin-top: 0;
 }
 
 .book-item-author {
     color: black; 
     font-size: 1rem;
+}
+
+@media screen and (max-width: 1400px) {
+    .book-item-title {
+        font-size: 1rem; 
+        font-weight: 600; 
+        margin-top: 0;
+    }
+    .book-item-author {
+        color: black; 
+        font-size: 0.8rem;
+    }
 }
 
 @media screen and (max-width: 380px) {

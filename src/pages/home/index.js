@@ -18,7 +18,7 @@ const Home = () => {
             const genres = book.genre.split(",")
             const genre = genres[0]
             return (
-              <Col key={index} xs={24} xl={8}>
+              <Col key={index} xs={24} xl={8} lg={12} md={16}>
                 <BookItem
                   title={book.title}
                   imageUrl={book.imageurl}
