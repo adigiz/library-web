@@ -5,6 +5,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Snackbar from "components/snackbar";
+import "./index.css"
 
 const Register = () => {
   const navigate = useNavigate();
@@ -22,8 +23,8 @@ const Register = () => {
       });
   };
   return (
-    <div style={{ display: "flex", flexBasis: 0 }}>
-      <Layout style={{ width: "100%", overflow: "hidden", height: "100vh" }}>
+    <div className="register-container">
+      <Layout className="register-image" style={{ width: "100%", overflow: "hidden", height: "100vh" }}>
         <Image
           height="auto"
           preview={false}
@@ -37,9 +38,10 @@ const Register = () => {
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
+          height: "100vh"
         }}
       >
-        <div style={{ width: "500px", padding: "2rem" }}>
+        <div style={{ minWidth: "350px", padding: "2rem", width: "100%", maxWidth: "500px" }}>
           <div style={{ marginBottom: "5rem" }}>
             <img src={logo} width={300}></img>
           </div>

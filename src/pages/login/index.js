@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "hooks/useAuth";
 import Snackbar from "components/snackbar";
+import "./index.css"
 
 const Login = () => {
   const { setToken } = useAuth();
@@ -25,8 +26,8 @@ const Login = () => {
       });
   };
   return (
-    <div style={{ display: "flex", flexBasis: 0 }}>
-      <Layout style={{ width: "100%", overflow: "hidden", height: "100vh" }}>
+    <div className="login-container">
+      <Layout className="login-image" style={{ width: "100%", overflow: "hidden", height: "100vh" }}>
         <Image
           height="auto"
           preview={false}
@@ -40,9 +41,10 @@ const Login = () => {
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
+          height: "100vh"
         }}
       >
-        <div style={{ width: "500px", padding: "2rem" }}>
+        <div style={{ minWidth: "350px", padding: "2rem", width: "100%", maxWidth: "500px" }}>
           <div style={{ marginBottom: "5rem" }}>
             <img src={logo} width={300}></img>
           </div>
@@ -59,7 +61,7 @@ const Login = () => {
               remember: true,
             }}
             onFinish={handleSubmit}
-            style={{ textAlign: "left" }}
+            style={{ textAlign: "left", minWidth: "0" }}
           >
             <Form.Item
               name="username"

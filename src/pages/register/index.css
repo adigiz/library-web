@@ -1,0 +1,19 @@
+.register-container {
+    display: flex;
+    flex-basis: 0;
+}
+
+.register-image {
+    display: block;
+}
+@media screen and (max-width: 1200px) {
+    .register-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .register-image {
+        display: none;
+    }
+}

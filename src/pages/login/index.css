@@ -1,0 +1,19 @@
+.login-container {
+    display: flex;
+    flex-basis: 0;
+}
+
+.login-image {
+    display: block;
+}
+@media screen and (max-width: 1200px) {
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-image {
+        display: none;
+    }
+}
