@@ -5,3 +5,36 @@ a {
 a:hover {
     color: blue;
 }
+
+.book-item {
+    display: flex;
+    padding: 1.2rem;
+}
+
+.book-item-image {
+    border-radius: 1.2rem; 
+    padding-left: 0;
+}
+
+.book-item-title {
+    font-size: 1.2rem; 
+    font-weight: 600; 
+    line-height: auto;
+}
+
+.book-item-author {
+    color: black; 
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 380px) {
+    .book-item-title {
+        font-size: 1rem; 
+        font-weight: 600; 
+        margin-top: 0;
+    }
+    .book-item-author {
+        color: black; 
+        font-size: 0.8rem;
+    }
+}

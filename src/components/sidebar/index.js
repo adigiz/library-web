@@ -29,7 +29,7 @@ const items = [
     label: "Discover",
     disabled: true,
   },
-  getItem("Home", "hom", <AppstoreOutlined />),
+  getItem("Home", "hom", <Link to={"/"}><AppstoreOutlined /></Link>),
   getItem("Recently Added", "rec", <FireOutlined />),
   {
     type: "divider",
@@ -52,10 +52,12 @@ const Sidebar = () => {
   const logoStyle = collapsed ? null : { marginLeft: "20px" };
   return (
     <Sider
+      style={{ zIndex: 999 }}
+      zeroWidthTriggerStyle={{ top: "150px"}}
       width={250}
       theme="light"
       breakpoint="lg"
-      collapsible
+      collapsedWidth="0"
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
     >

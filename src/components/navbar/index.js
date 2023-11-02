@@ -1,15 +1,12 @@
 import { Input, Avatar, Col, Row, Dropdown, Space, theme, Layout } from "antd";
 import useAuth from "hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import "./index.css"
 const { Header } = Layout;
 const userOptions = [
   {
-    label: "Profile",
-    key: "0",
-  },
-  {
     label: "Logout",
-    key: "1",
+    key: "0",
   },
 ];
 
@@ -40,15 +37,11 @@ const Navbar = () => {
         >
           <Input placeholder="Search Books" bordered={false} />
         </Col>
-        <Col flex="none">
+        <Col flex="none" >
           <Dropdown menu={{ items: userOptions, onClick }} trigger={["click"]}>
             <Space
               size="middle"
-              style={{
-                paddingRight: "20px",
-                paddingLeft: "20px",
-                cursor: "pointer",
-              }}
+              className="avatar-container"
             >
               Gizwanda
               <Avatar size="large">Giz</Avatar>
