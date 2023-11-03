@@ -35,7 +35,6 @@ const Navbar = () => {
             paddingLeft: "20px",
           }}
         >
-          <Input placeholder="Search Books" bordered={false} />
         </Col>
         <Col flex="none" >
           <Dropdown menu={{ items: userOptions, onClick }} trigger={["click"]}>

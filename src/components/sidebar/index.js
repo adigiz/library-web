@@ -53,7 +53,7 @@ const Sidebar = () => {
   return (
     <Sider
       style={{ zIndex: 999 }}
-      zeroWidthTriggerStyle={{ top: "150px"}}
+      zeroWidthTriggerStyle={{ top: "50px"}}
       width={250}
       theme="light"
       breakpoint="lg"
