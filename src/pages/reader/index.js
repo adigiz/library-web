@@ -8,6 +8,8 @@ const BookReader = () => {
     return (
       <div style={{ height: '100vh' }}>
         <ReactReader
+          swipeable
+          showToc={false}
           url={location.state.fileUrl}
           location={position}
           locationChanged={(epubcfi) => setPosition(epubcfi)}

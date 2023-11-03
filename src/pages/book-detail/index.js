@@ -33,7 +33,7 @@ const BookDetail = () => {
           <p style={{ fontSize: "30px", fontWeight: 800 }}>
             {data.title}
           </p>
-          <div style={{ display: "flex", gap: "10px"}}>
+          <div style={{ display: "flex", gap: "10px", overflow: "auto"}}>
             { data.genre.split(",").map((g) => <Genre genre={g}/>)}
           </div>
           <p style={{ color: "grey" }}>by {data.author}</p>
